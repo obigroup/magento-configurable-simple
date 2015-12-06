@@ -106,9 +106,9 @@ class OrganicInternet_SimpleConfigurableProducts_Catalog_Block_Product_View_Type
         }
 
         $childBlock = $this->getLayout()->createBlock('catalog/product_view_attributes');
-        $config["productAttributes"] = $childBlock->setTemplate('catalog/product/view/attributes.phtml')
-            ->setProduct($this->getProduct())
-            ->toHtml();
+        $productAttributes = $childBlock->setTemplate('catalog/product/view/attributes.phtml');
+        $productAttributes->setProduct($this->getProduct());
+        $config["productAttributes"] = $productAttributes->toHtml();
 
         // Prevent Issue 6 start
         /*
