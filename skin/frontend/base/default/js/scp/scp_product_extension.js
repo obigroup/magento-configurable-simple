@@ -269,6 +269,7 @@ Product.Config.prototype.updateProductStock = function(productId) {
     //it won't be shown for associated product either. It's too hard to work out
     //where to place it given that different themes use very different html here
     $$('p.availability').each(function(el) { 
+        stockStatusHtml = stockStatusHtml.replace("span", "p");
         el.replace(stockStatusHtml);
     });
     $$('div.add-to-box').each(function(el) { 
