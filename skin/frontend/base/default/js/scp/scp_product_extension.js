@@ -268,12 +268,16 @@ Product.Config.prototype.updateProductStock = function(productId) {
     //If config product doesn't already have an additional information section,
     //it won't be shown for associated product either. It's too hard to work out
     //where to place it given that different themes use very different html here
-    $$('p.availability').each(function(el) { 
-        el.replace(stockStatusHtml);
-    });
-    $$('div.add-to-box').each(function(el) { 
-        el.innerHTML=addToCartHtml;
-    });
+	 if (typeof stockStatusHtml !== 'undefined') {
+		 $$('p.availability').each(function(el) { 
+			  el.replace(stockStatusHtml);
+		 });
+	 }
+	 if (typeof addToCartHtml !== 'undefined') {
+		 $$('div.add-to-box').each(function(el) { 
+			  el.innerHTML=addToCartHtml;
+		 });
+	 }
 };
 
 Product.Config.prototype.updateProductSku = function(productId) {
