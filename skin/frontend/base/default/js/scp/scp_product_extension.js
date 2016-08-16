@@ -130,7 +130,7 @@ Product.OptionsPrice.prototype.updateSpecialPriceDisplay = function(price, final
 
     if (price == finalPrice) {
         specialPriceBox.each(function(x) {x.hide();});
-        magentopriceLabel.each(function(x) {x.hide();});
+        magentopriceLabel.each(function(x) {x.show();});
         oldPricePriceBox.each(function(x) {
             x.removeClassName('old-price');
             x.addClassName('was-old-price');
@@ -269,6 +269,7 @@ Product.Config.prototype.updateProductStock = function(productId) {
     //it won't be shown for associated product either. It's too hard to work out
     //where to place it given that different themes use very different html here
     $$('p.availability').each(function(el) { 
+        stockStatusHtml = stockStatusHtml.replace("span", "p");
         el.replace(stockStatusHtml);
     });
     $$('div.add-to-box').each(function(el) { 
