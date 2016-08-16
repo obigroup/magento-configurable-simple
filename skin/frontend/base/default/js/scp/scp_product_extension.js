@@ -130,7 +130,7 @@ Product.OptionsPrice.prototype.updateSpecialPriceDisplay = function(price, final
 
     if (price == finalPrice) {
         specialPriceBox.each(function(x) {x.hide();});
-        magentopriceLabel.each(function(x) {x.hide();});
+        magentopriceLabel.each(function(x) {x.show();});
         oldPricePriceBox.each(function(x) {
             x.removeClassName('old-price');
             x.addClassName('was-old-price');
