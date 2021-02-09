@@ -94,6 +94,11 @@ class OrganicInternet_SimpleConfigurableProducts_Catalog_Block_Product_View_Type
             $config['priceFromLabel'] = $this->__('');
         }
         $config['ajaxBaseUrl'] = Mage::getUrl('oi/ajax/');
+        $ex = explode('?',$config['ajaxBaseUrl']);
+        if(count($ex) == 2)
+        {
+          $config['ajaxBaseUrl'] = $ex[0];
+        }
         $config['productName'] = $p->getName();
         $config['description'] = $this->helper('catalog/output')->productAttribute($p, $p->getDescription(), 'description');
         $config['shortDescription'] = $this->helper('catalog/output')->productAttribute($p, nl2br($p->getShortDescription()), 'short_description');
